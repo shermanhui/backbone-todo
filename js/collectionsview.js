@@ -22,8 +22,13 @@ var ToDoItemsView = Backbone.View.extend({
 	},
 
 	onClickAdd: function(){ // handles DOM events
-		var toDoItem = new ToDoItem({ description: "new item"});
+		var $inputText = this.$('#newToDo');
+
+		var toDoItem = new ToDoItem({ description: $inputText.val()});
+
 		this.model.add(toDoItem);
+
+		$inputText.val(""); // clears input after "Add"
 	},
 
 	render: function(){
