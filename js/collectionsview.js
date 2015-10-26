@@ -8,20 +8,29 @@ var ToDoItemsView = Backbone.View.extend({
 		if (!(options && options.model)){
 			throw new Error ("Mode is not specified!");
 		}
+
+		this.model.on("add", this.onAddToDoItem, this);
 	},
 
-	events: {
+	onAddToDoItem: function(toDoItem){ // handles Collections Events
+		var view = new ToDoItemView({ model: toDoItem});
+		this.$el.append(view.render().$el);
+	},
+
+	events: { // handles DOM events
 		"click #add": "onClickAdd"
 	},
 
-	onClickAdd: function(){
-		console.log("Added")
+	onClickAdd: function(){ // handles DOM events
+		var toDoItem = new ToDoItem({ description: "new item"});
+		this.model.add(toDoItem);
 	},
 
 	render: function(){
 		var self = this;
 
 		var source = $("#addTemplate").html();
+
 		var template = _.template(source);
 
 		this.$el.html(template);
