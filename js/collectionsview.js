@@ -10,8 +10,21 @@ var ToDoItemsView = Backbone.View.extend({
 		}
 	},
 
+	events: {
+		"click #add": "onClickAdd"
+	},
+
+	onClickAdd: function(){
+		console.log("Added")
+	},
+
 	render: function(){
 		var self = this;
+
+		var source = $("#addTemplate").html();
+		var template = _.template(source);
+
+		this.$el.html(template);
 
 		this.model.each(function(toDoItem){
 
