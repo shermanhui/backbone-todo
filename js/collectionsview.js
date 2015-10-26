@@ -1,4 +1,7 @@
+
 var ToDoItemsView = Backbone.View.extend({
+	tagName: "ul",
+
 	render: function(){
 		var self = this;
 
@@ -12,4 +15,4 @@ var ToDoItemsView = Backbone.View.extend({
 
 		return this;
 	}
-})
+});
