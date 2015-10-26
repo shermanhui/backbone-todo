@@ -2,6 +2,14 @@
 var ToDoItemsView = Backbone.View.extend({
 	tagName: "ul",
 
+	id: "todoItems",
+
+	initialize: function(options){
+		if (!(options && options.model)){
+			throw new Error ("Mode is not specified!");
+		}
+	},
+
 	render: function(){
 		var self = this;
 
