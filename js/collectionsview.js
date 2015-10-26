@@ -18,17 +18,21 @@ var ToDoItemsView = Backbone.View.extend({
 	},
 
 	events: { // handles DOM events
-		"click #add": "onClickAdd"
+		"keypress #newToDo": "onEnter"
 	},
 
-	onClickAdd: function(){ // handles DOM events
-		var $inputText = this.$('#newToDo');
+	onEnter: function(e){ // handles DOM events
+		if (e.keyCode == 13){
+			var $inputText = this.$('#newToDo');
 
-		var toDoItem = new ToDoItem({ description: $inputText.val()});
+			if ($inputText.val()){
+				var toDoItem = new ToDoItem({ description: $inputText.val()});
 
-		this.model.add(toDoItem);
+				this.model.add(toDoItem);
 
-		$inputText.val(""); // clears input after "Add"
+				$inputText.val(""); // clears input after "Add"
+			}
+		}
 	},
 
 	render: function(){
