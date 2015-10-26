@@ -1,7 +1,10 @@
 
 $(document).ready(function(){
-	var todoItem = new ToDoItem({ description: "Item 1"});
+	var todoItems = new ToDoItems([
+		new ToDoItem({description: "Item 1"}),
+		new ToDoItem({description: "Item 2"})
+		]);
 
-	var todoItemView = new ToDoItemView({ model: todoItem });
-	$("body").append(todoItemView.render().$el);
+	var todoItemsView = new ToDoItemsView({ model: todoItems});
+	$("body").append(todoItemsView.render().$el);
 });
