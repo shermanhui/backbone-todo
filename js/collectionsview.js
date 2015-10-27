@@ -11,6 +11,7 @@ var ToDoItemsView = Backbone.View.extend({
 		}
 
 		this.model.on("add", this.onAddToDoItem, this);
+		this.model.on("remove", this.onRemoveToDoItem, this);
 	},
 
 	onAddToDoItem: function(toDoItem){ // handles Collections Events
@@ -18,6 +19,12 @@ var ToDoItemsView = Backbone.View.extend({
 		var view = new ToDoItemView({ model: toDoItem});
 
 		this.$el.append(view.render().$el);
+	},
+
+	onRemoveToDoItem: function(toDoItem){
+
+		console.log("removed", toDoItem);
+
 	},
 
 	events: { // handles DOM events

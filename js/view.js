@@ -12,7 +12,9 @@ var ToDoItemView = Backbone.View.extend({
 	},
 
 	events: {
-		"click .toggle": "onClickToggle"
+
+		"click .toggle": "onClickToggle",
+		"click .destroy": "onClickDelete"
 	},
 
 	onClickToggle: function(){
@@ -20,6 +22,12 @@ var ToDoItemView = Backbone.View.extend({
 		this.model.toggle(); // calls toggle method on item, to let model decide how to update the state
 
 		console.log(this.model.toJSON());
+	},
+
+	onClickDelete: function(){
+
+		this.model.destroy();
+
 	},
 
 	render: function(){
