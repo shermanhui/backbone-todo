@@ -27,7 +27,14 @@ body, p {
 
 }
 
+#todoItems li.completed {
+
+	text-decoration: line-through;
+
+}
+
 #todoItems > li {
+
 	padding: 10px;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
