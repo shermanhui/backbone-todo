@@ -29,7 +29,7 @@ var ToDoItemsView = Backbone.View.extend({
 			var $inputText = this.$('#newToDo');
 
 			if ($inputText.val()){
-				var toDoItem = new ToDoItem({ description: $inputText.val()});
+				var toDoItem = new ToDoItem({ title: $inputText.val()});
 
 				this.model.add(toDoItem);
 
@@ -41,7 +41,7 @@ var ToDoItemsView = Backbone.View.extend({
 	render: function(){
 		var self = this;
 
-		var source = $("#addTemplate").html();
+		var source = $("#input-template").html();
 
 		var template = _.template(source);
 

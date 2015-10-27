@@ -3,9 +3,9 @@ $(document).ready(function(){
 
 	var toDoItems = new ToDoItems([
 
-		new ToDoItem({description: "Item 1"}),
+		new ToDoItem({title: "Item 1", completed: "false"}),
 
-		new ToDoItem({description: "Item 2"})
+		new ToDoItem({title: "Item 2", completed: "false"})
 
 		]);
 

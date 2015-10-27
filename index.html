@@ -23,10 +23,16 @@
         <script src="js/view.js"></script>
         <script src="js/collectionsview.js"></script>
 
-        <script type="text/html" id="addTemplate">
+        <script type="text/html" id="input-template">
             <input type="text" placeholder="Enter your To-Do here"autofocus id="newToDo"></input>
         </script>
 
+        <script type="text/html" id="item-template">
+            <div class="view">
+                <input class="toggle" type="checkbox">
+                <label><%= title %></label>
+            </div>
+        </script>
         <script src="js/main.js"></script>
     </body>
 </html>

@@ -14,8 +14,13 @@ var ToDoItemView = Backbone.View.extend({
 
 	render: function(){
 
-		this.$el.html(this.model.get("description"));
+		var source = $("#item-template").html();
+
+		var template = _.template(source);
+
+		this.$el.html(template(this.model.attributes)); // have to pass in model attributes or title is undefined!
 
 		return this;
+
 	}
 });
