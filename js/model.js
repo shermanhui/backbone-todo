@@ -1,5 +1,6 @@
 
 var ToDoItem = Backbone.Model.extend({
+
 	defaults: {
 		title: "",
 
@@ -18,6 +19,7 @@ var ToDoItem = Backbone.Model.extend({
 	toggle: function(){ // handles the completed state of a to do item
 
 		this.set("completed", !this.get("completed"));
+		console.log("toggled", this.get("completed"));
 
 	}
 

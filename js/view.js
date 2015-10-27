@@ -1,5 +1,6 @@
 
 var ToDoItemView = Backbone.View.extend({
+
 	tagName: "li",
 
 	initialize: function(options){
