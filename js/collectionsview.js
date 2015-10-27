@@ -26,6 +26,7 @@ var ToDoItemsView = Backbone.View.extend({
 
 	onEnter: function(e){ // handles DOM events
 		if (e.keyCode == 13){
+
 			var $inputText = this.$('#newToDo');
 
 			if ($inputText.val()){

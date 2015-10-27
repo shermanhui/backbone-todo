@@ -16,14 +16,10 @@ var ToDoItem = Backbone.Model.extend({
 		}
 	},
 
-	toggle: function(){
+	toggle: function(){ // handles the completed state of a to do item
 
-		this.save({
+		this.set("completed", !this.get("completed"));
 
-			completed: !this.get('completed')
-
-		});
 	}
-
 
 });
