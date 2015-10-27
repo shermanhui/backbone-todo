@@ -6,6 +6,7 @@ var ToDoItemsView = Backbone.View.extend({
 
 	initialize: function(options){
 		if (!(options && options.model)){
+
 			throw new Error ("Mode is not specified!");
 		}
 
@@ -13,7 +14,9 @@ var ToDoItemsView = Backbone.View.extend({
 	},
 
 	onAddToDoItem: function(toDoItem){ // handles Collections Events
+
 		var view = new ToDoItemView({ model: toDoItem});
+
 		this.$el.append(view.render().$el);
 	},
 
