@@ -24,13 +24,13 @@
         <script src="js/collectionsview.js"></script>
 
         <script type="text/html" id="input-template">
-            <input type="text" placeholder="Enter your To-Do here"autofocus id="newToDo"></input>
+            <input type="text" placeholder="Something to do?"autofocus id="newToDo"></input>
         </script>
 
         <script type="text/html" id="item-template">
             <div class="view">
                 <label>
-                    <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
+                    <input autofocus class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
                     <%= title %>
                 </label>
                 <button class="destroy">X</button>

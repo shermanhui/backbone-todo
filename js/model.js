@@ -7,6 +7,8 @@ var ToDoItem = Backbone.Model.extend({
 		completed: false
 	},
 
+	urlRoot: "http://jsonplaceholder.typicode.com/todos",
+
 	validate: function(attrs){
 
 		if (!attrs.title){
@@ -18,8 +20,7 @@ var ToDoItem = Backbone.Model.extend({
 
 	toggle: function(){ // handles the completed state of a to do item
 
-		this.set("completed", !this.get("completed"));
-		console.log("toggled", this.get("completed"));
+		this.save("completed", !this.get("completed")); // use save to activate PUT request, .set doesn't do that
 
 	}
 

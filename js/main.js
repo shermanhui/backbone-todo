@@ -1,13 +1,9 @@
 
 $(document).ready(function(){
 
-	var toDoItems = new ToDoItems([
+	var toDoItems = new ToDoItems();
 
-		new ToDoItem({title: "Item 1", completed: false}),
-
-		new ToDoItem({title: "Item 2", completed: false})
-
-		]);
+	toDoItems.fetch();
 
 	var toDoItemsView = new ToDoItemsView({ model: toDoItems});
 

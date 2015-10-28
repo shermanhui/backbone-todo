@@ -17,6 +17,7 @@ var ToDoItemView = Backbone.View.extend({
 	events: {
 
 		"click .toggle": "onClickToggle",
+
 		"click .destroy": "onClickDelete"
 
 	},
@@ -25,7 +26,6 @@ var ToDoItemView = Backbone.View.extend({
 
 		this.model.toggle(); // calls toggle method on item, to let model decide how to update the state
 
-		console.log(this.model.toJSON());
 	},
 
 	onClickDelete: function(){
@@ -40,6 +40,7 @@ var ToDoItemView = Backbone.View.extend({
 
 		var template = _.template(source);
 
+		this.$el.attr("id", this.model.id);
 		this.$el.toggleClass("checked", this.model.get("completed"));
 		this.$el.html(template(this.model.attributes)); // have to pass in model attributes or title is undefined!
 

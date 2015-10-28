@@ -24,7 +24,7 @@ var ToDoItemsView = Backbone.View.extend({
 
 	onRemoveToDoItem: function(toDoItem){
 
-		console.log("removed", toDoItem);
+		this.$("li#" + toDoItem.id).remove();
 
 	},
 
@@ -40,7 +40,7 @@ var ToDoItemsView = Backbone.View.extend({
 			if ($inputText.val()){
 				var toDoItem = new ToDoItem({ title: $inputText.val()});
 
-				this.model.add(toDoItem);
+				this.model.create(toDoItem); // .create does the job of save and add
 
 				$inputText.val(""); // clears input after "Add"
 			}
