@@ -10,12 +10,15 @@ var ToDoItemView = Backbone.View.extend({
 			throw new Error("Model has not been specified.");
 
 		}
+
+		this.listenTo(this.model, "change", this.render);
 	},
 
 	events: {
 
 		"click .toggle": "onClickToggle",
 		"click .destroy": "onClickDelete"
+
 	},
 
 	onClickToggle: function(){
