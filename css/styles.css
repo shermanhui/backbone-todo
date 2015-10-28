@@ -27,7 +27,7 @@ body, p {
 
 }
 
-#todoItems li.completed {
+#todoItems > li.checked label{
 
 	text-decoration: line-through;
 

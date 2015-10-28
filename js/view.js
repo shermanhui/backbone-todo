@@ -40,6 +40,7 @@ var ToDoItemView = Backbone.View.extend({
 
 		var template = _.template(source);
 
+		this.$el.toggleClass("checked", this.model.get("completed"));
 		this.$el.html(template(this.model.attributes)); // have to pass in model attributes or title is undefined!
 
 		return this;
