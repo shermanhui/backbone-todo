@@ -14,11 +14,35 @@ var ToDoItemView = Backbone.View.extend({
 		this.listenTo(this.model, "change", this.render);
 	},
 
+	render: function(){
+
+		var source = $("#item-template").html();
+
+		var template = _.template(source);
+
+		this.$input = this.$(".edit");
+
+		this.$el.attr("id", this.model.id);
+
+		this.$el.toggleClass("checked", this.model.get("completed"));
+
+		this.$el.html(template(this.model.attributes)); // have to pass in model attributes or title is undefined!
+
+		return this;
+
+	},
+
 	events: {
 
 		"click .toggle": "onClickToggle",
 
-		"click .destroy": "onClickDelete"
+		"click .destroy": "onClickDelete",
+
+		"click .editor": "onClickEdit",
+
+		"keypress .edit": "updateOnEnter",
+
+		"blur .edit": "close"
 
 	},
 
@@ -34,17 +58,35 @@ var ToDoItemView = Backbone.View.extend({
 
 	},
 
-	render: function(){
+	onClickEdit : function(){
 
-		var source = $("#item-template").html();
+		this.$el.addClass("editing");
 
-		var template = _.template(source);
+		this.$input.focus();
 
-		this.$el.attr("id", this.model.id);
-		this.$el.toggleClass("checked", this.model.get("completed"));
-		this.$el.html(template(this.model.attributes)); // have to pass in model attributes or title is undefined!
+	},
 
-		return this;
+	updateOnEnter: function(e){
+		if (e.which == 13){
+			this.close();
+		}
+	},
 
+	close: function(){
+		var value = this.$input.val();
+
+		var trimmedVal = value.trim();
+
+		if (trimmedVal) {
+
+			this.model.save({title: trimmedValue});
+
+		} else {
+
+			this.clear();
+
+		}
+
+		this.$el.removeClass("editing");
 	}
 });

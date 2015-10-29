@@ -12,12 +12,13 @@ var ToDoItemsView = Backbone.View.extend({
 		}
 
 		this.model.on("add", this.onAddToDoItem, this);
+
 		this.model.on("remove", this.onRemoveToDoItem, this);
 	},
 
 	onAddToDoItem: function(toDoItem){ // handles Collections Events
 
-		var view = new ToDoItemView({ model: toDoItem});
+		var view = new ToDoItemView({model: toDoItem});
 
 		this.$el.append(view.render().$el);
 	},
@@ -38,6 +39,7 @@ var ToDoItemsView = Backbone.View.extend({
 			var $inputText = this.$('#newToDo');
 
 			if ($inputText.val()){
+
 				var toDoItem = new ToDoItem({ title: $inputText.val()});
 
 				this.model.create(toDoItem); // .create does the job of save and add

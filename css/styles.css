@@ -27,16 +27,34 @@ body, p {
 
 }
 
+#todoItems > li {
+
+	padding: 10px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+
+}
+
 #todoItems > li.checked label{
 
 	text-decoration: line-through;
 
 }
 
-#todoItems > li {
+#todoItems input.edit {
 
-	padding: 10px;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	display: none; /* Hides Edit Input Box */
+
 }
 
+#todoItems .editing label {
+
+	display: none; /* Hides original todo text when editing */
+
+}
+
+#todoItems > .editing input.edit {
+
+	display: inline; /* Shows input text when editing */
+
+}
