@@ -29,8 +29,8 @@
 
         <script type="text/html" id="item-template">
             <div class="view">
-                <input autofocus class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
-                <label><%= title %></label>
+                <label><input autofocus class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
+                <%= title %></label>
                 <input class="edit" value="<%- title %>">
                 <button class="destroy">X</button>
                 <button class="editor">Edit</button>
