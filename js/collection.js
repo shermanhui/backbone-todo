@@ -1,8 +1,8 @@
 
-var ToDoItems = Backbone.Collection.extend({
+var ToDoItems = Backbone.Firebase.Collection.extend({
 
 	model: ToDoItem,
 
-	url: "http://jsonplaceholder.typicode.com/todos"
+	url: "https://fiery-fire-3787.firebaseio.com"
 
 });

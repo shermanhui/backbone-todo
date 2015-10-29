@@ -2,12 +2,10 @@
 var ToDoItem = Backbone.Model.extend({
 
 	defaults: {
-		title: "",
+		title: "New To Do",
 
 		completed: false
 	},
-
-	urlRoot: "http://jsonplaceholder.typicode.com/todos",
 
 	validate: function(attrs){
 

@@ -12,6 +12,7 @@ var ToDoItemView = Backbone.View.extend({
 		}
 
 		this.listenTo(this.model, "change", this.render);
+
 	},
 
 	render: function(){

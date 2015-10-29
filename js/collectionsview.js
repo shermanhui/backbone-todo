@@ -14,6 +14,8 @@ var ToDoItemsView = Backbone.View.extend({
 		this.model.on("add", this.onAddToDoItem, this);
 
 		this.model.on("remove", this.onRemoveToDoItem, this);
+
+		this.listenTo(this.collection, "add", this.onAddToDoItem);
 	},
 
 	onAddToDoItem: function(toDoItem){ // handles Collections Events
