@@ -20,13 +20,14 @@ var ToDoItemView = Backbone.View.extend({
 
 		var template = _.template(source);
 
-		this.$input = this.$(".edit");
 
 		this.$el.attr("id", this.model.id);
 
 		this.$el.toggleClass("checked", this.model.get("completed"));
 
-		this.$el.html(template(this.model.attributes)); // have to pass in model attributes or title is undefined!
+		this.$el.html(template(this.model.toJSON())); // have to pass in model attributes or title is undefined!
+
+		this.$input = this.$(".edit"); // moved here or else we get an undefined value..
 
 		return this;
 
@@ -79,7 +80,7 @@ var ToDoItemView = Backbone.View.extend({
 
 		if (trimmedVal) {
 
-			this.model.save({title: trimmedValue});
+			this.model.save({title: trimmedVal});
 
 		} else {
 
