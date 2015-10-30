@@ -2,6 +2,7 @@
 var ToDoItem = Backbone.Model.extend({
 
 	defaults: {
+
 		title: "New To Do",
 
 		completed: false

@@ -6,6 +6,7 @@ var ToDoItemsView = Backbone.View.extend({
 	id: "todoItems",
 
 	initialize: function(options){
+
 		if (!(options && options.model)){
 
 			throw new Error ("Mode is not specified!");
@@ -32,7 +33,9 @@ var ToDoItemsView = Backbone.View.extend({
 	},
 
 	events: { // handles DOM events
+
 		"keypress #newToDo": "onEnter"
+
 	},
 
 	onEnter: function(e){ // handles DOM events
