@@ -6,17 +6,18 @@ var ToDoItemsView = Backbone.View.extend({
 	id: "todoItems",
 
 	initialize: function(options){
+		var self = this;
 
 		if (!(options && options.model)){
 
-			throw new Error ("Mode is not specified!");
+			throw new Error ("Model is not specified!");
 		}
 
 		this.model.on("add", this.onAddToDoItem, this);
 
 		this.model.on("remove", this.onRemoveToDoItem, this);
 
-		this.listenTo(this.collection, "add", this.onAddToDoItem);
+		// this.listenTo(this.collection, "add", this.onAddToDoItem);
 	},
 
 	onAddToDoItem: function(toDoItem){ // handles Collections Events
@@ -45,9 +46,11 @@ var ToDoItemsView = Backbone.View.extend({
 
 			if ($inputText.val()){
 
-				var toDoItem = new ToDoItem({ title: $inputText.val()});
+				this.collection.add({ title: $inputText.val()})
 
-				this.model.create(toDoItem); // .create does the job of save and add
+				//var toDoItem = new ToDoItem({ title: $inputText.val()});
+
+				//this.model.create(toDoItem); // .create does the job of save and add
 
 				$inputText.val(""); // clears input after "Add"
 			}

@@ -73,7 +73,6 @@ var ToDoItemView = Backbone.View.extend({
 		if (e.which == 13){
 
 			this.close();
-
 		}
 	},
 
