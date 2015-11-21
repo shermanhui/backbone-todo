@@ -14,6 +14,14 @@ var ToDoItem = Backbone.Model.extend({
 
 			return "Title Required";
 
+		} else if (!attrs.id) {
+
+			return "Id Required"
+
+		} else if (!attrs.completed){
+
+			return "Status required"
+
 		}
 	},
 

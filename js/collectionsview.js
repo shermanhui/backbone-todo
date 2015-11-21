@@ -46,14 +46,16 @@ var ToDoItemsView = Backbone.View.extend({
 
 			if ($inputText.val()){
 
-				this.collection.add({ title: $inputText.val()})
+				//this.collection.create({ title: $inputText.val()}) // 'cannot read property create of undefined'
 
-				//var toDoItem = new ToDoItem({ title: $inputText.val()});
+				var toDoItem = new ToDoItem({ title: $inputText.val()});
 
-				//this.model.create(toDoItem); // .create does the job of save and add
+				this.model.create(toDoItem.toJSON()); // .create does the job of save and add
 
 				$inputText.val(""); // clears input after "Add"
 			}
+
+			//this.collection.create({ title: $inputText.val()}) // Paths must not be empty strings error
 		}
 	},
 
